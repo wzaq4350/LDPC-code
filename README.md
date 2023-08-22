@@ -1,5 +1,5 @@
 # LDPC Decoder in AWGN Channel Simulation
->This project provides a comprehensive simulation environment for LDPC (Low-Density Parity-Check) decoding in the presence of an Additive White Gaussian Noise (AWGN) channel using the Sum-Product Algorithm (SPA).
+>This project provides a comprehensive simulation environment for (1023, 781) LDPC (Low-Density Parity-Check) decoding in the presence of an Additive White Gaussian Noise (AWGN) channel using the Sum-Product Algorithm (SPA).
 ## Simulation Flow
 >**1.Encoding Phase:** The original message undergoes LDPC encoding.
 
@@ -23,7 +23,8 @@
 ## Files in this Repository:
 >**LDPC.c:** The main source code of the simulation.
 >
->**ldpc_H_1023.txt:** An example file that comprises the LDPC matrix, showcasing the connections between check nodes and variable nodes.
->![image](https://github.com/wzaq4350/LDPC-code/blob/main/Project_LDPC_page8_image.png)
+>**ldpc_H_1023.txt:** This is a 2046x32 matrix as shown below. Rows 1-1023 record the connections of check nodes 1-1023 to their respective 32 variable nodes. Rows 1024-2046 document the links of variable nodes 1-1023 to their corresponding 32 check nodes.
+>
+>![image](https://github.com/wzaq4350/LDPC-code/blob/main/Project_LDPC_page8_image.jpg)
 >
 >**ldpc_G_1023.txt:** Represents the generator matrix essential for the LDPC code.
