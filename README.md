@@ -25,6 +25,12 @@
 >
 >**ldpc_H_1023.txt:** This is a 2046x32 matrix as shown below. Rows 1-1023 record the connections of check nodes 1-1023 to their respective 32 variable nodes. Rows 1024-2046 document the links of variable nodes 1-1023 to their corresponding 32 check nodes.
 >
->![image](https://github.com/wzaq4350/LDPC-code/blob/main/Project_LDPC_page8_image.jpg)
->
+<div align="center">
+<img src=https://github.com/wzaq4350/LDPC-code/blob/main/ldpc_H_1023.jpg width=60% />
+</div>
+
 >**ldpc_G_1023.txt:** Represents the generator matrix essential for the LDPC code.
+>
+<div align="center">
+<img src=https://github.com/wzaq4350/LDPC-code/blob/main/ldpc_G_1023.png width=60% />
+</div>
