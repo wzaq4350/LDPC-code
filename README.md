@@ -24,5 +24,6 @@
 >**LDPC.c:** The main source code of the simulation.
 >
 >**ldpc_H_1023.txt:** An example file that comprises the LDPC matrix, showcasing the connections between check nodes and variable nodes.
+>![image](https://github.com/wzaq4350/LDPC-code/blob/main/Project_LDPC_page8_image.png)
 >
 >**ldpc_G_1023.txt:** Represents the generator matrix essential for the LDPC code.
