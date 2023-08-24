@@ -19,7 +19,8 @@
 int **read_ldpc_G_from_file(const char *, int, int);
 int **read_node_connection_matrix_from_file(const char *, int, int);
 int **createGeneratorMatrix(int **, int, int);
-void freeMatrix(int **, int);
+void freeintMatrix(int **, int);
+void freedoubleMatrix(double **, int);
 void printMatrix(int **, int, int);
 //=========================================
 int *generated_sequence(int);
@@ -44,10 +45,6 @@ int main()
     double SNR = 3.0;
     int block_num = 10000000, iteration_max = 100;
 
-    // Start the timer to measure the execution time of the simulation
-    clock_t start, end;
-    double cpu_time_used;
-    start = clock();
 
     // Define block length, dimension, and row weight
     int block_length = 1023, dimension = 781, row_weight = 32;
@@ -77,7 +74,7 @@ int main()
     // Loop through each block
     for (int i = 0; i < block_num; i++)
     {
-        // Terminate if too many error blocks
+        // Terminate if error blocks > 100
         if (err_block_num > 100)
         {
             break;
@@ -123,15 +120,14 @@ int main()
         free(x);
         free(y);
     }
+    
     // Free allocated memory
     free(u_tx);
-    freeMatrix(ldpc_G, dimension);
-    freeMatrix(node_connection_matrix, 2 * block_length);
+    freeintMatrix(ldpc_G, dimension);
+    freeintMatrix(node_connection_matrix, 2 * block_length);
+    freedoubleMatrix(check_to_variable_msgs,block_length);
+    freedoubleMatrix(variable_to_check_msgs,block_length);
 
-    // Calculate and print the total execution time
-    end = clock();
-    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
-    printf("running time: %f sec\n", cpu_time_used);
     system("pause");
     return 0;
 }
@@ -225,7 +221,15 @@ int **read_node_connection_matrix_from_file(const char *filename, int rows, int 
 }
 
 // Function to free allocated memory
-void freeMatrix(int **matrix, int rows)
+void freeintMatrix(int **matrix, int rows)
+{
+    for (int i = 0; i < rows; i++)
+        free(matrix[i]);
+    free(matrix);
+}
+
+// Function to free allocated memory
+void freedoubleMatrix(double **matrix, int rows)
 {
     for (int i = 0; i < rows; i++)
         free(matrix[i]);
